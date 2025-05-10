@@ -8,5 +8,5 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
     site: 'https://malitogdevs.github.io',
-    base: 'portfolio',
+    
 });
