@@ -22,7 +22,7 @@ const { title, description, technologies, id, url, images } = Astro.props;
                 {
                     technologies.map((tech) => {
                         return (
-                           <img src={`/imgs/language_icons/${tech}_icon.svg`} title={tech} alt={tech} class="icon"/>
+                           <img src={`imgs/language_icons/${tech}_icon.svg`} title={tech} alt={tech} class="icon"/>
                         );
                     })
                 }

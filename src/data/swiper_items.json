@@ -1,16 +1,5 @@
 [
     {
-        "id" : "dp",
-        "title" : "Daniel Pérez",
-        "description" : "Mi nombre es Daniel Pérez, soy desarrollador web especializado en Wordpress y Elementor. A lo largo de estos 18 años años he trabajado en una variedad de proyectos, con diferentes tecnologías y enfoques, desde sitios web corporativos hasta aplicaciones web complejas. Mi enfoque es crear soluciones personalizadas que se adapten a las necesidades de mis clientes.",
-        "technologies" : ["php", "python", "wordpress", "elementor", "woocommerce", "prestashop", "drupal", "django", "react", "angular", "vue"],
-        "url" : "",
-        "images" : [
-            "/yo/yo1.jpg",
-            "/yo/yo1.jpg"
-        ]
-    },
-    {
         "id" : "anmar",
         "title" : "Anmar Predict",
         "description" : "Sitio web creado con Wordpress y Elementor como constructor visual. Anmar Predict esta enfocada en el sector de partes mecánicas para diferentes industrias. Es un catálogo como punto de entrada para la venta directa en fábrica por la complejidad de cada producto.",
