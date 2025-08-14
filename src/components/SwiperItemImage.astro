@@ -1,0 +1,8 @@
+---
+export interface Props {
+    url: string
+}
+
+const { url } = Astro.props;
+---
+<div class="swiper-slide"><img src={`/imgs/websites${url}`} class="swiper-image" alt="Titulo de la imagen" /></div>

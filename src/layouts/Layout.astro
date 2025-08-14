@@ -1,0 +1,51 @@
+---
+import "../styles/global.css";
+import "../styles/fonts.css";
+
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+
+<script is:inline>
+ // Grab all images that need the effect
+  const images = Array.from(document.querySelectorAll(".swiper-image")); // change to '.swiper-images' if that’s your class
+
+  // Cache viewport size so we don’t read it on every mousemove
+  let vw = window.innerWidth;
+  let vh = window.innerHeight;
+  addEventListener("resize", () => {
+    vw = window.innerWidth;
+    vh = window.innerHeight;
+  });
+
+  // Throttle updates to one per animation frame
+  let rafId;
+  document.addEventListener("mousemove", (e) => {
+    if (rafId) return;              // already scheduled
+    rafId = requestAnimationFrame(() => {
+      const x = (vw - e.clientX) / 100;   // ↓ lower divisor for stronger effect
+      const y = (vh - e.clientY) / 100;
+      images.forEach((img) => {
+        img.style.transform = `translate(${x}px, ${y}px)`;
+      });
+      rafId = null;
+    });
+  });
+</script>

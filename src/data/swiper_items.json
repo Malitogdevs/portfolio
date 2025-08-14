@@ -1,0 +1,113 @@
+[
+    {
+        "id" : "dp",
+        "title" : "Daniel Pérez",
+        "description" : "Mi nombre es Daniel Pérez, soy desarrollador web especializado en Wordpress y Elementor. A lo largo de estos 18 años años he trabajado en una variedad de proyectos, con diferentes tecnologías y enfoques, desde sitios web corporativos hasta aplicaciones web complejas. Mi enfoque es crear soluciones personalizadas que se adapten a las necesidades de mis clientes.",
+        "technologies" : ["php", "python", "wordpress", "elementor", "woocommerce", "prestashop", "drupal", "django", "react", "angular", "vue"],
+        "url" : "",
+        "images" : [
+            "/yo/yo1.jpg",
+            "/yo/yo1.jpg"
+        ]
+    },
+    {
+        "id" : "anmar",
+        "title" : "Anmar Predict",
+        "description" : "Sitio web creado con Wordpress y Elementor como constructor visual. Anmar Predict esta enfocada en el sector de partes mecánicas para diferentes industrias. Es un catálogo como punto de entrada para la venta directa en fábrica por la complejidad de cada producto.",
+        "technologies" : ["php", "wordpress", "elementor"],
+        "url" : "https://anmarpredict.com",
+        "images" : [
+            "/anmarpredict/anmar_mockup_mobile.jpeg",
+            "/anmarpredict/anmar_mockup_laptop.jpeg"
+        ]
+    },
+    {
+        "id" : "appmejoramos",
+        "title" : "APP Mejoramos tus seguros",
+        "description" : "Webapp creada para la gestión de clientes, pólizas y siniestros. Permite la interación entre clientes, gestor y aseguradoras. Para ello fue creado un plugin especifico que explota todas las bondades del entorno Wordpress y Elementor como consturctor visual.",
+        "technologies" : ["php", "wordpress", "elementor"],
+        "url" : "https://app.mejoramostusseguros.com",
+        "images" : [
+            "/appmejoramos/appmejoramos_mockup_mobile.jpeg",
+            "/appmejoramos/appmejoramos_mockup_laptop.jpeg"
+        ]
+    },
+    {
+        "id" : "auratech",
+        "title" : "AuraTech",
+        "description" : "Web corporativa creada con Wordpress y Elementor como constructor visual. AuraTech es una empresa de servicios tecnológicos que ofrece soluciones a medida para sus clientes.",
+        "technologies" : ["php", "wordpress", "elementor"],
+        "url" : "https://auratech.cat/",
+        "images" : [
+            "/auratech/auratech_mockup_mobile.jpeg",
+            "/auratech/auratech_mockup_laptop.jpeg"
+        ]
+    },
+    {
+        "id" : "bevicis",
+        "title" : "Bevicis",
+        "description" : "Web creada con Wordpress y Elementor como constructor visual. Bevicis es una agencia de publicidad que ofrece soluciones a medida para sus clientes.",
+        "technologies" : ["php", "wordpress", "elementor"],
+        "url" : "https://auratech.cat/",
+        "images" : [
+            "/bevicis/bevicis_mockup_mobile.jpeg",
+            "/bevicis/bevicis_mockup_laptop.jpeg"
+        ]
+    },
+    {
+        "id" : "easytaxcontrol",
+        "title" : "Easy Tax Control",
+        "description" : "Web creada con Wordpress y Elementor como constructor visual. Easy Tax Control es un esudio de abogados que ofrece soluciones a medida para sus clientes.",
+        "technologies" : ["php", "wordpress", "elementor"],
+        "url" : "https://easytaxcontrol.com/",
+        "images" : [
+            "/easytaxcontrol/easytaxcontrol_mockup_mobile.jpeg",
+            "/easytaxcontrol/easytaxcontrol_mockup_laptop.jpeg"
+        ]
+    },
+    {
+        "id" : "greenandblue",
+        "title" : "Green and Blue",
+        "description" : "Web creada con Wordpress y Elementor como constructor visual. Green and blue es una empresa que ofrece servicio de alquiler de Villas en Ibiza y Menorca. En conjunto ofrece servicios de venta de productos básicos para la estadia con un carro de compras creado con Wordpress, Elementor y Woocommerce.",
+        "technologies" : ["php", "wordpress", "elementor", "woocommerce"],
+        "url" : "https://greenandbluevillas.com/",
+        "images" : [
+            "/greenandblue/greenandblue_mockup_mobile.jpeg",
+            "/greenandblue/greenandblue_mockup_laptop.jpeg"
+        ]
+    },
+    {
+        "id" : "misterfy",
+        "title" : "Misterfy",
+        "description" : "Web onepage en 3 idiomas, creada con Wordpress y Elementor como constructor visual. Misterfy es una empresa que ofrece servicio de alquiler de Vans en toda la región Europea.",
+        "technologies" : ["php", "wordpress", "elementor"],
+        "url" : "https://misterfy.com/",
+        "images" : [
+            "/misterfy/misterfy_mockup_mobile.jpeg",
+            "/misterfy/misterfy_mockup_laptop.jpeg"
+        ]
+    },
+    {
+        "id" : "mistervan",
+        "title" : "Mistervan",
+        "description" : "Web creada con Wordpress y Elementor como constructor visual. Mistervan es una empresa que ofrece servicio de alquiler de Vans en toda la región Europea enfocada en el B2B.",
+        "technologies" : ["php", "wordpress", "elementor"],
+        "url" : "https://mistervan.com/",
+        "images" : [
+            "/mistervan/mistervan_mockup_mobile.jpeg",
+            "/mistervan/mistervan_mockup_laptop.jpeg"
+        ]
+    },
+    {
+        "id" : "tsiatlantico",
+        "title" : "Tecni Soluciones Industriales Atlántico",
+        "description" : "Web creada con Wordpress y Elementor como constructor visual.<br>Tecni Soluciones Industriales Atlántico ofrece sus productos industriales a través de un catálogo de productos en la región Europea.",
+        "technologies" : ["php", "wordpress", "elementor"],
+        "url" : "https://tsiatlantico.com/",
+        "images" : [
+            "/tsiatlantico/tsiatlantico_mockup_mobile.jpeg",
+            "/tsiatlantico/tsiatlantico_mockup_laptop.jpeg"
+        ]
+    }
+
+]

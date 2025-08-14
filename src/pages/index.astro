@@ -1,16 +1,47 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
+import SwiperItem from '../components/SwiperItem.astro';
+import SwiperItemData from '../data/swiper_items.json';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Bienvenidos a dp.">
+	<main>
+		<section id="yo" class="bg-black swiper-container section flex" style="background-image: url('imgs/websites/yo/yo3.jpg'); background-size: cover; background-position: center;">descripcion="
+			<div class="content flex flex-col lg:flex-row gap-4 items-center p-6 lg:px-8">
+				<div class="flex flex-col gap-5 p-4 lg:w-[35%] w-[100%] lg:order-1 order-2 align-items-left justify-center lg:justify-center justify-end h-[100vh] content-info-wrapper relative">
+					<h2 class="">Daniel Pérez</h2>
+					<p class="description">Mi nombre es Daniel Pérez, soy desarrollador web especializado en Wordpress y Elementor. A lo largo de estos 18 años años he trabajado en una variedad de proyectos, con diferentes tecnologías y enfoques, desde sitios web corporativos hasta aplicaciones web complejas. Mi enfoque es crear soluciones personalizadas que se adapten a las necesidades de mis clientes.</p>
+					<p class="technologies flex-wrap">
+						{
+							["php", "python", "wordpress", "elementor", "woocommerce", "prestashop", "drupal", "django", "react", "angular", "vue"].map((tech) => {
+								return (
+								<img src={`/imgs/language_icons/${tech}_icon.svg`} title={tech} alt={tech} class="icon"/>
+								);
+							})
+						}
+					</p>
+				</div>
+			</div>
+		</section>	
+
+	{
+		SwiperItemData.map( (item) => {
+			return (
+				<SwiperItem
+				id={item.id}
+				description={item.description}
+				title={item.title}
+				url={item.url}
+				technologies={item.technologies}
+				images={item.images}
+				/>
+			);
+		})
+	}
+
+	</main>
+</Layout>
+
+
+
+<script src="../libs/slider_simple.js"></script>

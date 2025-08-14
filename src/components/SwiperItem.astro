@@ -1,0 +1,48 @@
+---
+import SwiperItemImage from '../components/SwiperItemImage.astro';
+
+export interface Props {
+	title: string,
+	id: string,
+    description: string,
+    url: string,
+    technologies: string[],
+    images: string[]
+}
+
+const { title, description, technologies, id, url, images } = Astro.props;
+---
+
+<section id={id} class="bg-black swiper-container section flex">
+    <div class="content flex flex-col lg:flex-row gap-4 items-center p-6 lg:px-8">
+        <div class="flex flex-col gap-5 p-4 lg:w-[35%] w-[100%] lg:order-1 order-2 align-items-center m-auto justify-center h-full content-info-wrapper relative">
+            <h2 class="">{title}</h2>
+            <p class="description">{description}</p>
+            <p class="technologies">
+                {
+                    technologies.map((tech) => {
+                        return (
+                           <img src={`/imgs/language_icons/${tech}_icon.svg`} title={tech} alt={tech} class="icon"/>
+                        );
+                    })
+                }
+            </p>
+            <a href={url} target="_blank" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded self-start">Ir a la web</a>
+        </div>
+        <div class="swiper_parent flex-1 p-4 w-[100%] lg:w-[65%] lg:order-2 order-1 relative">
+            <div class="swiper horizontal-swiper">
+                <div class="swiper-wrapper">
+                {
+                    images.map( (item) => {
+                        return (
+                            <SwiperItemImage
+                                url={item}
+                            />
+                        );
+                    })
+                }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
