@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Clonar el repo
+      # 1️⃣ Clonar el repositorio
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '21'  # o la versión que uses
+          node-version: '20'
 
       # 3️⃣ Instalar dependencias
       - name: Install dependencies
@@ -28,10 +28,14 @@ jobs:
       - name: Build Astro site
         run: npm run build
 
-      # 5️⃣ Publicar en GitHub Pages
+      # 5️⃣ Mostrar contenido de dist (debug)
+      - name: List dist folder
+        run: ls -la dist
+
+      # 6️⃣ Publicar en GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-          force_orphan: true
+          force_orphan: true   # Crea la rama gh-pages si no existe
