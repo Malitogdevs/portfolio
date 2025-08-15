@@ -90,12 +90,23 @@
     {
         "id" : "tsiatlantico",
         "title" : "Tecni Soluciones Industriales Atlántico",
-        "description" : "Web creada con Wordpress y Elementor como constructor visual.<br>Tecni Soluciones Industriales Atlántico ofrece sus productos industriales a través de un catálogo de productos en la región Europea.",
+        "description" : "Web creada con Wordpress y Elementor como constructor visual. Tecni Soluciones Industriales Atlántico ofrece sus productos industriales a través de un catálogo de productos en la región Europea.",
         "technologies" : ["php", "wordpress", "elementor"],
         "url" : "https://tsiatlantico.com/",
         "images" : [
             "/tsiatlantico/tsiatlantico_mockup_mobile.jpeg",
             "/tsiatlantico/tsiatlantico_mockup_laptop.jpeg"
+        ]
+    },
+    {
+        "id" : "confucio",
+        "title" : "Confucio Barcelona",
+        "description" : "Web creada con Drupal. Confucio Barcelona es un colégio privado de origen chino que ofrece educación infantil, primaria y secundaria en Barcelona.",
+        "technologies" : ["php", "drupal"],
+        "url" : "https://confuciobarcelona.cat/",
+        "images" : [
+            "/confucio/confucio_mockup_mobile.jpeg",
+            "/confucio/confucio_mockup_laptop.jpeg"
         ]
     }
 
