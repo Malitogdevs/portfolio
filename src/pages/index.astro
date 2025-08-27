@@ -1,33 +1,52 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import SwiperItem from '../components/MainItem.astro';
 import SwiperItem from '../components/SwiperItem.astro';
 import SwiperItemData from '../data/swiper_items.json';
-import MainItem from '../components/MainItem.astro';
+import HeaderItem from '../components/HeaderItem.astro';
+
+import ThemeSwitch from "../components/ThemeSwitch.astro";
+import ThemeDownload from "../components/ThemeDownload.astro";
 ---
 
-<Layout title="Bienvenidos a dp.">
-	<main>
+<Layout title="Bienvenidos a mi portfolio.">
+	<main>	
+		<div class="snap-container">
+			<HeaderItem/>
+			{
+				SwiperItemData.map( (item) => {
+					return (
+						<SwiperItem
+							id={item.id}
+							description={item.description}
+							title={item.title}
+							url={item.url}
+							technologies={item.technologies}
+							img={item.img}
+						/>
+					);
+				})
+			}
+		</div>	
 		
-	<MainItem/>
-	{
-		SwiperItemData.map( (item) => {
-			return (
-				<SwiperItem
-				id={item.id}
-				description={item.description}
-				title={item.title}
-				url={item.url}
-				technologies={item.technologies}
-				images={item.images}
-				/>
-			);
-		})
-	}
-
+		<ThemeSwitch />
+		<ThemeDownload />
+				
 	</main>
+	
 </Layout>
 
+<script>
+  const els = document.querySelectorAll(".fade-el");
 
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animate-slideUp"); // dispara animación
+		entry.target.classList.remove("opacity-0");
+      }
+    });
+  }, { threshold: 0.5 });
 
-<script src="../libs/slider_simple.js"></script>
+  els.forEach(el => observer.observe(el));
+</script>
+

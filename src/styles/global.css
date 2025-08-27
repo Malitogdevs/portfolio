@@ -4,70 +4,114 @@
 html, body, main {
   margin: 0;
   height: 100vh;
-
+  width:100%;
   font-family:'Noto Sans', sans-serif;
 }
 
 h2{
-  font-size:52px;
   font-weight:700;
   line-height: 1.2;
 }
 
-.content-info-wrapper p{
-  font-size:22px;
+/* Contenedor principal con scroll vertical */
+.snap-container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory; /* Activamos scroll-snap vertical */
 }
+
+/* Cada sección ocupa toda la pantalla y se "engancha" */
+section {
+  height: 100vh;
+  scroll-snap-align: start; /* Empieza en cada sección */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  overflow:hidden;
+  scroll-behavior: smooth;
+}
+
 .content-info-wrapper p.technologies{
   display:flex;
+  align-items: flex-start;
   gap:15px;
   padding:5px;
-  color:#000;
   font-weight:700;
 }
+
 .content-info-wrapper p.technologies img{
   width:30px;
   height:auto;
   display:inline;
 }
 
-.swiper-container, .swiper-container .swiper{
-  width: 100%;
-  height: 100%;
-}
-
-.swiper-container .swiper .description-wrapper{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    position:absolute;
-    height:100%;
-    width:50%;
-    left:0;
-    top:0;
-    padding:25px;
-}
-
-/* .swiper-container .horizontal-swiper {
-  width: 50vw;
-  height: 100vh;
-  margin:0;
-} */
-
-.swiper-slide{
-  justify-content:center;
-  align-items:center;
+.swiper_parent .img_wrapper {
+  position:relative;
+  width:100%;
   height:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 2000px;
+  transform-style: preserve-3d;
+  perspective-origin: 50% 0%;
 }
-.swiper-slide img{
-  height:100%;
-  object-fit: cover;
+
+.swiper_parent .container {
+  display:block;
+  position: absolute;
+  left:50%;
   margin:auto;
-  user-select: none;       /* Prevent text/image selection */
-  -webkit-user-drag: none; /* Prevent dragging in WebKit browsers */
-  pointer-events: none; 
+  width: 80%;
+  height: 100%;
+
+  transform: rotateX(61deg) scale3d(0.86, 0.8, 0.5) skew(-15deg, 15deg) translate(-50%, 0%);
+  transition:transform 0.8s ease-in-out, width 0.8s ease-in-out;
+  
+  animation-delay: 0s;
+
+}
+.animate-slideUp{  animation: animacion1 1.5s ease-out forwards; }
+
+.swiper_parent .img_wrapper img{
+  height:auto;
+  width:100%;
 }
 
+.swiper_parent:hover .container{
 
+  transform: rotateY(-15deg) skewX(-1deg) translate(-50%, 0%);
+}
+
+@keyframes animacion1 {
+    0% {
+        opacity: 0;
+        bottom:100%;
+    }
+    50% {
+        opacity: 1;
+        bottom:0;
+    }
+    100% {
+        opacity: 1;
+        bottom:0;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+  .swiper_parent .container {
+    width: 90%;
+    height:50vh;
+    transform: rotateX(-5deg) rotateY(-31deg) skewX(-1deg) translate(-54%, 19%);
+    
+    transform-origin: 50% 100%;
+  }
+  .swiper_parent:hover .container{
+
+    transform: rotateX(-5deg) rotateY(-10deg) skewX(0) translate(-50%, 8%);
+  }
+}
 
 .swiper-container .content-info-wrapper{
   z-index: 9;
@@ -83,189 +127,13 @@ h2{
   background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0) 100%);
 }
 
-@media screen and (max-width:1024px){
-  .swiper-slide img{
-    height:initial;
-    width:70%;
-  }
-  .swiper-container .content-info-wrapper:after{
-    content:"";
-    display:none
-  }
-  .swiper_parent:after{
-    content:"";
-    position:absolute;
-    right:0;
-    top:0;
-    transform:rotate(180deg);
-    width:50px;
-    height:100%;
-    background: #000000;
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0) 100%);
-    z-index:9;
-  }
-  .swiper_parent:before{
-    content:"";
-    position:absolute;
-    left:0;
-    width:50px;
-    height:100%;
-    background: #000000;
-    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0) 100%);
-    z-index:9;
-  }
+.container {
+  overflow-y: auto;
+  position: relative;
+}
+.draggable-image {
+  cursor: grab;
+  user-select: none;
+  display: block;
 }
 
-@layer base, rhythm, layout, components, default, overwrites;
-
-html {
-  /* Create a snapping rule on the html element */
-  scroll-snap-type: y mandatory;
-
-  /* Create a timeline scope, so we can target any element on the page */
-  timeline-scope: --section, --main, --site-header;
-}
-
-/* We'll want to match these colors for the best melty effect */
-/* But play around with them (and add a color to section) to see happens */
-body,
-.content {
-  /*background-color: var(--color-background, black);*/
-  color:#fff;
-}
-
-main {
-  view-timeline: --main;
-}
-
-.section {
-  /* Creating a snapping rule on the section element */
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-
-  /* Attach the timeline to the section element*/
-  view-timeline: --section;
-
-  /* Set each section to the full dynamic height of the viewport */
-  height: 100dvh;
-}
-
-.content {
-  /* Fix the content, so it doesn't scroll with the section */
-  overflow: hidden;
-  position: fixed;
-  inset: 0;
-
-  /* Animate the content based on the section scrolling */
-  --contrast: 4;
-  --blur: 0.5rem;
-
-  animation: blink ease-in-out both;
-  animation-timeline: --section;
-}
-
-@keyframes blink {
-  0%,
-  100% {
-    filter: blur(var(--blur)) contrast(var(--contrast));
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  50% {
-    filter: blur(0) contrast(1);
-    opacity: 1;
-    visibility: visible;
-  }
-}
-
-/* 
-  This is a bit of a hack to get the indicator to work because I'm lazy.
-  We're translating the dot from the top to the bottom of its parent,
-  using the browser scroll position as the animation timeline.
-  It's not really matched up to the scrolling sections, only appears to be.
-*/
-.indicator::before {
-  animation: indicate linear both;
-  animation-timeline: --main;
-  animation-range: contain;
-}
-
-/* And we're manually setting the colors because see: lazy comment above */
-@keyframes indicate {
-  0% {
-    --color-indicator: var(--color-primary);
-    transform: translateY(0);
-  }
-
-  25% {
-    --color-indicator: var(--color-yellow);
-  }
-
-  50% {
-    --color-indicator: var(--color-secondary);
-  }
-
-  75% {
-    --color-indicator: var(--color-red);
-  }
-
-  100% {
-    --color-indicator: var(--color-purple);
-    transform: translateY(
-      calc(var(--indicator-total-height) - var(--indicator-size))
-    );
-  }
-}
-
-/* Remove gradient indicator on scroll-to-end (visible on small screens */
-
-.site-header label:last-of-type {
-  view-timeline: --site-header inline;
-}
-
-.site-header::after {
-  animation: fade-scroll ease-in-out both;
-  animation-timeline: --site-header;
-  animation-range: entry-crossing;
-}
-
-@keyframes fade-scroll {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-body .content {
-  animation: zoom-scroll ease-in-out both;
-  animation-timeline: --section;
-}
-
-
-/* WIP */
-@keyframes zoom-scroll {
-  0% {
-    filter: blur(5rem);
-    transform: scale(0);
-    opacity: 0;
-    visibility: hidden;
-  }
-
-  50% {
-    filter: blur(0);
-    transform: none;
-    opacity: 1;
-    visibility: visible;
-  }
-
-  100% {
-    filter: blur(3rem);
-    transform: scale(1.5);
-    opacity: 0;
-    visibility: hidden;
-  }
-}
