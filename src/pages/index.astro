@@ -48,5 +48,25 @@ import ThemeDownload from "../components/ThemeDownload.astro";
   }, { threshold: 0.5 });
 
   els.forEach(el => observer.observe(el));
+
+  const scrollEl = document.querySelector('.container');
+let isDown = false;
+let startY, scrollTop;
+
+scrollEl.addEventListener('mousedown', e => {
+  isDown = true;
+  startY = e.clientY;
+  scrollTop = scrollEl.scrollTop;
+  e.preventDefault();
+});
+
+scrollEl.addEventListener('mouseup', () => isDown = false);
+scrollEl.addEventListener('mouseleave', () => isDown = false);
+
+scrollEl.addEventListener('mousemove', e => {
+  if (!isDown) return;
+  scrollEl.scrollTop = scrollTop - (e.clientY - startY);
+});
+
 </script>
 

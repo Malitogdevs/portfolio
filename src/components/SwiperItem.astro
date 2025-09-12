@@ -29,8 +29,10 @@ const { title, description, technologies, id, url, img } = Astro.props;
     </div>
     <div class="swiper_parent flex-1 p-4 w-[100%] lg:w-[50%] lg:order-2 order-1 lg:h-[100vh] h-[50vh] lg:relative absolute left-0 top-0 z-9">
         <div class="img_wrapper relative">
-            <div class="container fade-el lg:absolute bottom-0 opacity-0">
-                <img src={`imgs/websites${img}`} class="swiper-image draggable-image" alt="Titulo de la imagen" />
+            <div class="container transform-container fade-el lg:absolute bottom-0 opacity-0">
+                <div class="scroll-wrapper">
+                    <img src={`imgs/websites${img}`} class="swiper-image draggable-image" alt="Titulo de la imagen" />
+                </div>
             </div>
         </div>
     </div>
