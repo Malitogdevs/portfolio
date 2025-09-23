@@ -1,3 +1,7 @@
+---
+import IconsData from '../data/icons.json';
+---
+
 <section id="yo" class="bg-black swiper-slide" style="background-image: url('imgs/websites/yo/yo3.jpg'); background-size: cover; background-position: center;">
     <div class="content flex flex-col lg:flex-row gap-4 items-center p-6 lg:px-8 swipere-slide">
         <div class="flex flex-col gap-5 p-4 lg:w-[35%] w-[100%] lg:order-1 order-2 align-items-left justify-center lg:justify-center justify-end h-[100vh] content-info-wrapper relative">
@@ -9,8 +13,12 @@
                 {
                     ["php", "python", "wordpress", "elementor", "woocommerce", "prestashop", "drupal", "django", "symfony", "laravel", "angular", "vue"].map((tech) => {
                         return (
-                        <img src={`imgs/language_icons/${tech}_icon.svg`} title={tech} alt={tech} class="icon"/>
-                        );
+                        IconsData.map((icon) => {
+                            if (icon.name === tech) {
+                                return <span set:html={icon.svg} />;
+                            }
+                        })
+                    );
                     })
                 }
             </p>

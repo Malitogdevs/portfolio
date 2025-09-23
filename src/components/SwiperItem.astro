@@ -1,4 +1,5 @@
 ---
+import IconsData from '../data/icons.json';
 export interface Props {
 	title: string,
 	id: string,
@@ -20,12 +21,16 @@ const { title, description, technologies, id, url, img } = Astro.props;
             {
                 technologies.map((tech) => {
                     return (
-                        <img src={`imgs/language_icons/${tech}_icon.svg`} title={tech} alt={tech} class="icon"/>
+                        IconsData.map((icon) => {
+                            if (icon.name === tech) {
+                                return <span set:html={icon.svg} />;
+                            }
+                        })
                     );
                 })
             }
         </p>
-        <a href={url} target="_blank" class="bg-pink-600 hover:bg-green-400 text-xl  font-bold py-2 px-4 rounded self-start">Ir a la web</a>
+        <a href={url} target="_blank" class="bg-pink-600 hover:bg-green-400 text-xl font-bold py-2 px-4 rounded self-start">Ir a la web</a>
     </div>
     <div class="swiper_parent flex-1 p-4 w-[100%] lg:w-[50%] lg:order-2 order-1 lg:h-[100vh] h-[50vh] lg:relative absolute left-0 top-0 z-9">
         <div class="img_wrapper relative">
