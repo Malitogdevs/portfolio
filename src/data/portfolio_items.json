@@ -17,6 +17,14 @@
         "img" : "/anmarpredict/anmar_mockup_full.jpeg"
     },
     {
+        "id" : "biker",
+        "title" : "Biker Company",
+        "description" : "Realicé la actualización, optimización y mantenimiento del sitio Prestashop de la empresa Biker Company, ubicada en Santiago de Chile y dedicada a la distribución y venta de motopartes. El trabajo consistió en una migración gradual de Prestashop, pasando desde la versión 1.6 hasta la versión 8, incluyendo la actualización del core, el theme y los módulos asociados. Actualmente continúo a cargo del mantenimiento y de las actualizaciones correspondientes.",
+        "technologies" : ["php", "prestashop"],
+        "url" : "https://bikercompany.cl",
+        "img" : "/bikercompany/biker_mockup_full.jpeg"
+    },
+    {
         "id" : "appmejoramos",
         "title" : "APP Mejoramos tus seguros",
         "description" : "Webapp creada para la gestión de clientes, pólizas y siniestros. Permite la interación entre clientes, gestor y aseguradoras. Para ello fue creado un plugin especifico que explota todas las bondades del entorno Wordpress y Elementor como consturctor visual.",
@@ -65,28 +73,12 @@
         "img" : "/greenandblue/greenandblue_mockup_full.jpeg"
     },
     {
-        "id" : "misterfy",
-        "title" : "Misterfy",
-        "description" : "Web onepage en 3 idiomas, creada con Wordpress y Elementor como constructor visual. Misterfy es una empresa que ofrece servicio de alquiler de Vans en toda la región Europea.",
-        "technologies" : ["php", "wordpress", "elementor"],
-        "url" : "https://misterfy.com/",
-        "img" : "/misterfy/misterfy_mockup_full.jpeg"
-    },
-    {
         "id" : "avsaf",
         "title" : "Avsaf",
         "description" : "Web creada con Wordpress, Woocommerce y Elementor como constructor visual. Avsaf es una reconocída academía de pilotos de aviones y áreas relacionadas. Desde la plataforma se venden cursos los cuales estan conectados por API con el framework Edwiser.",
         "technologies" : ["php", "wordpress", "elementor", "woocommerce"],
         "url" : "https://avsaf.com/",
         "img" : "/avsaf/avsaf_mockup_full.jpeg"
-    },
-    {
-        "id" : "mistervan",
-        "title" : "Mistervan",
-        "description" : "Web creada con Wordpress y Elementor como constructor visual. Mistervan es una empresa que ofrece servicio de alquiler de Vans en toda la región Europea enfocada en el B2B.",
-        "technologies" : ["php", "wordpress", "elementor"],
-        "url" : "https://mistervan.com/",
-        "img" : "/mistervan/mistervan_mockup_full.jpeg"
     },
     {
         "id" : "tsiatlantico",
