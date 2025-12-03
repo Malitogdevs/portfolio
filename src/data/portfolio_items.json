@@ -1,5 +1,13 @@
 [
-    
+
+     {
+        "id" : "propmanager",
+        "title" : "PropManager",
+        "description" : "Este proyecto es una plataforma de administración de propiedades y clientes desarrollada con Laravel 10 y Vue.js, diseñada para gestionar información inmobiliaria mediante múltiples relaciones entre tablas. El sistema adapta sus formularios según el tipo de cliente, permitiendo cargar datos específicos y vincularlos dinámicamente con propiedades, zonas, comodidades, rubros y otros elementos. Esta estructura flexible ofrece una gestión ordenada, ágil y centralizada de todos los datos necesarios para la operación inmobiliaria.",
+        "technologies" : ["php", "laravel", "vue"],
+        "url" : "https://propmanager.codpiler.com/login/",
+        "img" : "/propmanager/propmanager_mockup_full.jpeg"
+    },
     {
         "id" : "bevicis",
         "title" : "Bevicis",
