@@ -30,7 +30,9 @@ import ThemeDownload from "../components/ThemeDownload.astro";
 		
 		<ThemeSwitch />
 		<ThemeDownload />
-				
+		<p class="fixed bottom-[15px] left-1/2 -translate-x-1/2 transform text-white ">Sitio creado con 
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" style="width:24px;height:24px;display:inline-block"><path fill="white" d="M81.504 9.465c.973 1.207 1.469 2.836 2.457 6.09l21.656 71.136a90.079 90.079 0 0 0-25.89-8.765L65.629 30.28a1.833 1.833 0 0 0-3.52.004L48.18 77.902a90.104 90.104 0 0 0-26.003 8.778l21.758-71.14c.996-3.25 1.492-4.876 2.464-6.083a8.023 8.023 0 0 1 3.243-2.398c1.433-.575 3.136-.575 6.535-.575H71.72c3.402 0 5.105 0 6.543.579a7.988 7.988 0 0 1 3.242 2.402Zm0 0"/><path fill="#ff5d01" d="M84.094 90.074c-3.57 3.055-10.696 5.137-18.903 5.137-10.07 0-18.515-3.137-20.754-7.356-.8 2.418-.98 5.184-.98 6.954 0 0-.527 8.675 5.508 14.71a5.671 5.671 0 0 1 5.672-5.671c5.37 0 5.367 4.683 5.363 8.488v.336c0 5.773 3.527 10.719 8.543 12.805a11.62 11.62 0 0 1-1.172-5.098c0-5.508 3.23-7.555 6.988-9.938 2.989-1.894 6.309-4 8.594-8.222a15.513 15.513 0 0 0 1.875-7.41 15.55 15.55 0 0 0-.734-4.735Zm0 0"/><path fill="white" d="M84.094 90.074c-3.57 3.055-10.696 5.137-18.903 5.137-10.07 0-18.515-3.137-20.754-7.356-.8 2.418-.98 5.184-.98 6.954 0 0-.527 8.675 5.508 14.71a5.671 5.671 0 0 1 5.672-5.671c5.37 0 5.367 4.683 5.363 8.488v.336c0 5.773 3.527 10.719 8.543 12.805a11.62 11.62 0 0 1-1.172-5.098c0-5.508 3.23-7.555 6.988-9.938 2.989-1.894 6.309-4 8.594-8.222a15.513 15.513 0 0 0 1.875-7.41 15.55 15.55 0 0 0-.734-4.735Zm0 0"/></svg>
+    </p>
 	</main>
 	
 </Layout>
@@ -67,6 +69,78 @@ scrollEl.addEventListener('mousemove', e => {
   if (!isDown) return;
   scrollEl.scrollTop = scrollTop - (e.clientY - startY);
 });
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const elementos = document.querySelectorAll(".texto-colapsable");
+
+  const aplicarRecorte = () => {
+    const anchoPantalla = window.innerWidth;
+
+    elementos.forEach(el => {
+      const maxChars = parseInt(el.dataset.maxChars) || 120;
+      const textoCompleto = el.dataset.fullText || el.textContent.trim();
+
+      
+      el.dataset.fullText = textoCompleto;
+
+      
+      if (anchoPantalla > 868) {
+        el.innerHTML = textoCompleto;
+        return;
+      }
+
+      
+      if (el.classList.contains("expandido")) return;
+
+      if (textoCompleto.length > maxChars) {
+        const textoCortado = textoCompleto.substring(0, maxChars).trim() + "... ";
+        el.innerHTML = textoCortado;
+
+        const boton = document.createElement("span");
+        boton.textContent = "ver más";
+        boton.className = "ver-mas px-2 py-1 rounded bg-red-500/20 inline-block cursor-pointer hover:bg-red-500/80";
+        
+
+        boton.addEventListener("click", () => {
+          if (el.classList.contains("expandido")) {
+            // Colapsar
+            el.classList.remove("expandido");
+            el.innerHTML = textoCortado;
+            el.appendChild(boton);
+            boton.textContent = "ver más";
+            
+            el.parentElement?.classList.remove("z-10");
+            el.parentElement?.classList.remove("bg-black/50");
+
+          } else {
+            // Expandir
+            el.classList.add("expandido");
+            el.innerHTML = textoCompleto + " ";
+            el.appendChild(boton);
+            boton.textContent = "ver menos";
+
+            el.parentElement?.classList.add("z-10");
+            el.parentElement?.classList.add("bg-black/50");
+
+          }
+        });
+
+        el.appendChild(boton);
+      }
+    });
+  };
+
+  aplicarRecorte();
+  window.addEventListener("resize", aplicarRecorte);
+});
+
+
+
+
+
 
 </script>
 <style>
@@ -111,5 +185,17 @@ main::after {
 }
 
 
+.ver-mas {
+  color: #0077ff; !important
+  cursor: pointer !important;
+  font-weight: 600 !important;
+}
+
+.texto-expandido {
+  display: inline;
+}
+
 
 </style>
+
+

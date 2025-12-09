@@ -14,9 +14,9 @@ const { title, description, technologies, id, url, img } = Astro.props;
 
 
 <section id={id} class="content flex flex-col lg:flex-row items-center lg:px-8 relative">
-    <div class="flex flex-col gap-5 p-4 lg:w-[50%] w-[100%] lg:order-1 order-2 lg-align-items-center align-items-end m-auto lg:justify-center justify-end h-full content-info-wrapper relative">
+    <div class="description-container flex flex-col gap-5 p-4 lg:w-[50%] w-[100%] lg:order-1 order-2 lg-align-items-center align-items-end m-auto lg:justify-center justify-end h-full content-info-wrapper relative lg:bg-black/0">
         <h2 class="title lg:text-[52px] text-[32px]">{title}</h2>
-        <p class="description lg:text-[18px] text-[16px]">{description}</p>
+        <p class="description lg:text-[18px] text-[16px] texto-colapsable " data-max-chars="120">{description}</p>
         <p class="technologies">
             {
                 technologies.map((tech) => {
